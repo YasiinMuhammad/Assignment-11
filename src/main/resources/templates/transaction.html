@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Transaction ID</title>
+</head>
+<body>
+<h1 th:text="|Transaction ID: ${transactions.id} ${transactions.type == 'C' ? 'Credit' : 'Debit'} |"> 
+</h1>
+<div th:text="|Date: ${transactions.date}|">
+</div>
+<div th:text="|Amount: ${transactions.amount}|">
+</div>
+<div th:text="|Discription: ${transactions.retailer}|">
+</div>
+<a href="/transactions">back</a>
+</body>
+</html>

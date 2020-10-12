@@ -1,0 +1,30 @@
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Online Bank</title>
+		<link rel="stylesheet" href="/css/transactions.css"/>
+	</head>
+	<body>
+		<h2>Transaction History</h2>
+		
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Date</th>
+				<th>Retailer</th>
+				<th>Funds In</th>
+				<th>Funds Out</th>
+			</tr>
+			     <!-- th:each "transaction : ${transaction}" is equal to Key :Value-->
+			<tr th:each="transactions : ${transactions}">
+				<td><a th:href="@{/transactions/{transId}(transId=${transactions.id})}" th:text="${transactions.id}"></a></td>
+				<td th:text="${transactions.date}"></td>
+				<td th:text="${transactions.retailer}"></td>
+				<!-- boolean expression ? (return this if true) : (return this if false) -->
+				<td th:text="${transactions.type == 'C' ? transactions.amount : '-'}"></td>
+				<td th:text="${transactions.type == 'C' ? '-' : transactions.amount}"></td>
+		
+			</tr>
+			
+		</table>
+	</body>
+</html>
